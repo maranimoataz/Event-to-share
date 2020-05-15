@@ -15,12 +15,12 @@ class CreateEventTable extends Migration
     {
         Schema::create('event', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->default('event1');
             $table->string('type')->default('other');
-            $table->binary('image')->nullable();
-            $table->string('location')->default('casablanca');
+            $table->binary('image');
+            $table->string('location')->default('eljadida');
             $table->text('description');
-            $table->date('date');
+            $table->date('date')->default('2020/08/01');
             $table->time('start_time');
             $table->time('end_time');
             $table->string('email');

@@ -11,7 +11,7 @@
     <br />
     <input type="type" for="type" placeholder="type" v-model="type">
     <br />
-    <input type="file" placeholder="choose image" @change="onFileSelected">
+    <input type="file" placeholder="choose image" v-on:change="onImageChange">
     <br />
     <input type="location" for="location" placeholder="location" v-model="location">
     <br />
@@ -42,7 +42,7 @@ export default {
         return  {
             title : '',
             type : '',
-            image: null,
+            image: '',
             location :'',
             description : '',
             date:'',
@@ -55,10 +55,13 @@ export default {
         }
     },
     methods : {
-      onFileSelected(event) {
-          this.image = event.target.files[0]
-      },
-      onUpload(){
+       onImageChange(e) {
+                 console.log(e.target.files[0]);
+                 this.image = e.target.files[0];
+            },
+      onUpload(e){
+               e.preventDefault();
+
             this.errors = [];
 
             if(!this.title) {
@@ -96,11 +99,10 @@ export default {
             }
          if(!this.errors.length)
             {
-            const fd = new FormData();
                 const data = {
                     title : this.title,
                     type : this.type,
-                    image: fd.append('image', this.image, this.image.name),
+                    image: this.image,
                     location : this.location,
                     description : this.description,
                     date : this.date,
@@ -109,9 +111,12 @@ export default {
                     email : this.email,
                     first_name: this.first_name,
                     last_name : this.last_name,
-                }
-            
-            axios.post('http://127.0.0.1:8000/api/event',data, fd).then((res) => {
+                } 
+                
+                 let formData = new FormData();
+                formData.append('image', this.image);
+
+            axios.post('http://127.0.0.1:8000/api/event', formData,data).then((res) => {
                 console.log(res)
                 this.$router.push({ name: 'listing' });
                 console.log('réussi')
