@@ -1,6 +1,6 @@
 <template>
     <div >
-    <form autocomplete="off" @submit.prevent="onUpload">
+    <form @submit="onUpload" enctype="multipart/form-data">
     <div class="alert alert-danger" v-if="errors.length">
         <ul class="mb-0">
             <li v-for="(error, index) in errors" :key="index"> {{ error }}</li>
@@ -30,12 +30,13 @@
     <br />
     <input type="last_name" placeholder="last name" v-model="last_name">
     <br />
-              <center> <button  type="submit" class="btn btn-primary">Enregister </button></center>
+              <center> <button  type="submit" class="btn btn-primary" value="Upload">Enregister </button></center>
     </form>
     </div>
 </template>
 
 <script>
+import { Form, HasError, AlertError } from 'vform'
 import axios from 'axios'
 export default {
     data () {
@@ -57,53 +58,16 @@ export default {
     methods : {
        onImageChange(e) {
                  console.log(e.target.files[0]);
+                 this.filename = "Selected File: " + e.target.files[0].name;
                  this.image = e.target.files[0];
             },
       onUpload(e){
                e.preventDefault();
-
-            this.errors = [];
-
-            if(!this.title) {
-                this.errors.push('Please enter a title')
-            }
-             if(!this.type) {
-                this.errors.push('Please select a type')
-            }
-             if(!this.image) {
-                this.errors.push('Please select a image')
-            }
-             if(!this.location) {
-                this.errors.push('Please enter a location')
-            }
-             if(!this.description) {
-                this.errors.push('Please write a description')
-            }
-            if(!this.date) {
-                this.errors.push('please enter a date ')
-            }
-             if(!this.start_time) {
-                this.errors.push('please enter a beginnig time ')
-            }
-             if(!this.end_time) {
-                this.errors.push('please enter a end time ')
-            }
-             if(!this.email) {
-                this.errors.push('please enter your email ')
-            }
-             if(!this.first_name) {
-                this.errors.push('please enter your first name ')
-            }
-             if(!this.last_name) {
-                this.errors.push('please enter your last name')
-            }
-         if(!this.errors.length)
-            {
+                let currentObj = this;
                 const data = {
-                    title : this.title,
-                    type : this.type,
-                    image: this.image,
-                    location : this.location,
+                   title : this.title,
+                   type : this.type,
+                   location : this.location,
                     description : this.description,
                     date : this.date,
                     start_time : this.start_time,
@@ -111,23 +75,21 @@ export default {
                     email : this.email,
                     first_name: this.first_name,
                     last_name : this.last_name,
-                } 
-                
-                 let formData = new FormData();
-                formData.append('image', this.image);
+                }
+                let formData = new FormData();
+                formData.append('image',this.image);
 
-            axios.post('http://127.0.0.1:8000/api/event', formData,data).then((res) => {
-                console.log(res)
+            axios.post('http://127.0.0.1:8000/api/event', formData, data).then((res) => {
+                 console.log(res)
                 this.$router.push({ name: 'listing' });
                 console.log('réussi')
                  }).catch(error => {
-                    this.errors.push(error.response.data.error);
+                    console.log(error.response.data.error);
                 })
             }
         }
     }
 
-}
 </script>
 
 

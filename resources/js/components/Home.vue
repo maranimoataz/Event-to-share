@@ -11,6 +11,7 @@
             <router-link class="nav-item nav-link" to="Login">Login </router-link>
             <router-link class="nav-item nav-link" to="register">Register </router-link>
            <router-link class="nav-item nav-link" to="image">image </router-link>
+           <router-link class="nav-item nav-link" to="listing">listing </router-link>
 
                     <router-view></router-view>
             </div>

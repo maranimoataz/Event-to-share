@@ -30,6 +30,7 @@
         "@fullcalendar/vue": "^4.4.0",
         "@livelybone/vue-datepicker": "^3.1.1",
         "@pencilpix/vue2-clock-picker": "^0.1.6",
+        "vform": "^1.0.1",
         "vue-bootstrap-datetimepicker": "^5.0.1",
         "vue-clock-picker": "file:vue-clock-picker",
         "vue-full-calendar": "^2.7.0",

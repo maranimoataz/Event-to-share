@@ -11,7 +11,8 @@ use App\Traits\ImageUploader;
 class EventController extends Controller
 {
     public function index(){
-        return Event::all();
+        $event = Event::orderBy('created_at','desc')->get();
+        return response()->json($event);
     }
 
     public function show($id) {
@@ -24,7 +25,7 @@ class EventController extends Controller
         $validator = Validator::make($request->all() , [     
             'title'=>'required|string|max:255',
             'type'=>'required|string|max:255',
-            'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image'=>'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'location'=>'string|max:255',
             'description'=>'required|string|max:255',
             'date'=>'required|date',
