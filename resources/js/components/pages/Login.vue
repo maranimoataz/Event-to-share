@@ -43,7 +43,7 @@ export default {
                     }
                      axios.post('http://127.0.0.1:8000/api/login',data).then((res) => {
                         console.log(res)
-                        this.$router.push({ name: 'listing' });
+                        this.$router.push({ name: 'profile' });
                         }).catch(error => {
                             this.errors.push(error.response.data.error);
                         });

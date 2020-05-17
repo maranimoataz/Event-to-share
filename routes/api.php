@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('register','UserController@register');
-Route::post('login','UserController@login');
-Route::get('profile','UserController@getAuthenticatedUser');
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('register','UserController@register');
+Route::post('login','UserController@login');
+Route::get('profile','UserController@getAuthenticatedUser');
 
 
 Route::get('event','EventController@index');

@@ -7,6 +7,7 @@
 require('./bootstrap');
 import "bootstrap/dist/css/bootstrap.min.css";
 window.Vue = require('vue');
+Vue.component('vform', require('vue-vform'))
 
 jQuery.extend(true, jQuery.fn.datetimepicker.defaults, {
     icons: {

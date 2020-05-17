@@ -6,6 +6,7 @@ import Login from './components/pages/Login'
 import Listing from './components/mur/Listing'
 import Add from './components/mur/Add'
 import image from './components/mur/image'
+import profile from './components/pages/profile'
 import Vue from 'vue'
 
 
@@ -39,7 +40,12 @@ const routes =[
                     path: '/image',
                     name: 'image',
                     component: image,
-                    }
+                    },
+                    {
+                        path: '/profile',
+                        name: 'profile',
+                        component: profile,
+                        }
                 
 
 

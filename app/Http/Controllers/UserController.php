@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
 
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
@@ -58,19 +60,8 @@ class UserController extends Controller
 
         public function getAuthenticatedUser()
         {
-            try {
-                if(!$user = JWTAuth::authenticate()){
-                    return response()->json(['user_not_found'], 400);
-                }
-            }catch(Tymon\JWTAuth\Exceptions\TokenExpiredException $e){
-                return response()->json(['token_expired'], $e->getStatusCode());
-            }catch(Tymon\JWTAuth\Exceptions\TokenInvalidException $e){
-                return response()->json(['token_Invalid'], $e->getStatusCode());
-            }catch(Tymon\JWTAuth\Exceptions\JWTException $e){
-                return response()->json(['token_absent'], $e->getStatusCode());
-            }
+            return auth('api')->user();
             
-            return response()->json(compact('user'));
         }
     }
 
