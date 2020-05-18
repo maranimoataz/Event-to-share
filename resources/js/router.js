@@ -7,6 +7,7 @@ import Listing from './components/mur/Listing'
 import Add from './components/mur/Add'
 import image from './components/mur/image'
 import profile from './components/pages/profile'
+import Help from './components/mur/Help'
 import Vue from 'vue'
 
 
@@ -45,7 +46,13 @@ const routes =[
                         path: '/profile',
                         name: 'profile',
                         component: profile,
-                        }
+                        },
+                        {
+                            path: '/help',
+                            name: 'help',
+                            component: Help,
+                            }
+                            
                 
 
 
