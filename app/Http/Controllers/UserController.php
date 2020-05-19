@@ -60,8 +60,10 @@ class UserController extends Controller
 
         public function getAuthenticatedUser()
         {
-            return auth('api')->user();
-            
+            if (Auth::check())
+            {
+                return Auth::user();            
+            }        
         }
     }
 

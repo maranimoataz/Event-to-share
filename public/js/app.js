@@ -2177,6 +2177,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2193,7 +2194,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('http://127.0.0.1:8000/api/event').then(function (response) {
         _this.events = response.data;
       })["catch"](function (error) {
-        console.log('err');
+        console.log('error');
       });
     }
   }
@@ -2420,21 +2421,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       users: []
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     this.getUsers();
   },
   methods: {
     getUsers: function getUsers() {
-      axios.get('http://127.0.0.1:8000/api/profile').then(function (response) {
-        console.log(response.data);
+      var _this = this;
+
+      axios.get('http://127.0.0.1:8000/api/user/profile').then(function (response) {
+        _this.users = response.data;
       })["catch"](function (error) {
-        console.log('err');
+        console.log('error');
       });
     }
   }
@@ -64608,7 +64621,9 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(13, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.last_name))])
+                _c("span", [_vm._v(_vm._s(event.last_name))]),
+                _vm._v(" "),
+                _c("hr", { attrs: { width: "75%" } })
               ])
             }),
             0
@@ -65153,26 +65168,43 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\nthis is profile\n"),
-    _c(
-      "div",
-      { staticClass: "col-md-8" },
-      _vm._l(_vm.users, function(user) {
-        return _c("div", { key: user.id }, [
-          _vm._v(
-            "\n    " +
-              _vm._s(user.name) +
-              "\n    " +
-              _vm._s(user.email) +
-              "\n  "
-          )
-        ])
-      }),
-      0
-    )
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.users, function(user) {
+          return _c("tr", { key: user.id }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(user.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(user.email))])
+          ])
+        }),
+        0
+      )
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("First")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Last")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Handle")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

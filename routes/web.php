@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::post('event','EventController@store');
 Route::get('event','EventController@index');
+Route::get('profile','UserController@getAuthenticatedUser');

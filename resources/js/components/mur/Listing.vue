@@ -76,6 +76,7 @@
         <br />
         <label><b> The last name </b></label>
         <span>{{event.last_name}}</span>
+        <hr width="75%">
       </div>
       </div>
     </div>
@@ -100,7 +101,7 @@ export default {
               this.events = response.data;
             })
               .catch(error => {
-                console.log('err')
+                console.log('error')
               })
           }
         }
