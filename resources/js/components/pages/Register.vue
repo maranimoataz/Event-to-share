@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="container">
     <form autocomplete="off" @submit.prevent="onSubmit">
      <div class="alert alert-danger" v-if="errors.length">
         <ul class="mb-0">

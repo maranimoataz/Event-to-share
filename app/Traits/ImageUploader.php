@@ -13,7 +13,7 @@ trait ImageUploader
         $image_name = Str::random(12);
         $ext = strtolower($query->getClientOriginalExtension()); 
         $image_full_name = $image_name.'.'.$ext;
-        $upload_path = 'image/event';    
+        $upload_path = 'image/profile';    
         $image_url = $upload_path.$image_full_name;
         $success = $query->move($upload_path,$image_full_name);
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-
+use App\Traits\ImageUploader;
 
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
@@ -18,12 +18,22 @@ use Tymon\JWTAuth\JWTManager as JWT;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return User::all();
+    }
+
+    use ImageUploader;
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'family_name'=>'required|string|max:255',
+            'user_name'=>'required|string|max:255',
+            'image'=>'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'email'=> 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
+            'password' => 'min:6|required_with:confirm_password|same:confirm_password',
+            'confirm_password' =>'min:6',
         ]);
 
         if($validator->fails()){
@@ -35,10 +45,25 @@ class UserController extends Controller
         
         $user = new User;
         $user->name = $request->name;
+        $user->family_name = $request->family_name;
+        $user->user_name = $request->user_name;
+        $user->image = $request->image;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->save();
+        $user->confirm_password = bcrypt($request->confirm_password);
 
+        if($user->image)
+        {
+            try{
+                $filePath = $this->UserImageUpload($user->image);
+                $user->image = $filePath;
+                $user->save();
+                return redirect()->back();
+            }
+            catch(Exception $e) {
+                "erreur";
+            }
+        }
         $token = JWTAuth::fromUser($user);
 
         return response()->json(compact('user', 'token'), 201);
@@ -60,10 +85,7 @@ class UserController extends Controller
 
         public function getAuthenticatedUser()
         {
-            if (Auth::check())
-            {
-                return Auth::user();            
-            }        
+          return auth('api')->user();               
         }
     }
 

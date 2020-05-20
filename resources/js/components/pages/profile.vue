@@ -14,6 +14,8 @@
       <th scope="row">3</th>
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
+      <td>{{user.user_name}}</td>
+      <td>{{user.image}}</td>
       </tr>
   </tbody>
 </table>
@@ -31,7 +33,7 @@ export default {
     },
     methods: {
         getUsers() {
-            axios.get('http://127.0.0.1:8000/api/user/profile')
+            axios.get('http://127.0.0.1:8000/api/index')
             .then(response => {
                this.users = response.data;
             })

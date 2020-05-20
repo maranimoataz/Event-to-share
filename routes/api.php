@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Auth::routes();
 Route::post('register','UserController@register');
 Route::post('login','UserController@login');
-Route::prefix('/user')->group( function() {
-    Route::middleware('auth:api')->get('/profile','UserController@getAuthenticatedUser');
-});
+Route::get('profile','UserController@getAuthenticatedUser');
+Route::get('index','UserController@index');
 
 
 Route::get('event','EventController@index');
