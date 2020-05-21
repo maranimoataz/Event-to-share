@@ -32,7 +32,7 @@
         name : "Home",
         data() {
             return {
-                image: {backgroundImage: "url(image/img.gif)"},
+                image: {backgroundImage: "url(image/img-min.jpg)"},
             };
         }
     };

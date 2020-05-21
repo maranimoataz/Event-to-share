@@ -1,5 +1,8 @@
 <template>
     <div >
+    <div class="format">
+    <div class="wrapper">
+    <div class="form-wrapper">
     <form @submit="onUpload" enctype="multipart/form-data">
     <div class="alert alert-danger" v-if="errors.length">
         <ul class="mb-0">
@@ -33,6 +36,9 @@
               <center> <button  type="submit" class="btn btn-primary" value="Upload">Enregister </button></center>
     </form>
     </div>
+    </div>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -64,22 +70,30 @@ export default {
       onUpload(e){
                e.preventDefault();
                 let currentObj = this;
-                const data = {
-                   title : this.title,
-                   type : this.type,
-                   location : this.location,
+                let rawData = {
+                    title : this.title,
+                    type : this.type,
+                    location : this.location,
                     description : this.description,
                     date : this.date,
                     start_time : this.start_time,
                     end_time : this.end_time,
                     email : this.email,
-                    first_name: this.first_name,
-                    last_name : this.last_name,
+                    first_name : this.first_name,
+                    last_name : this.last_name
                 }
+                    rawData = JSON.stringify(rawData)
                 let formData = new FormData();
                 formData.append('image',this.image);
+                 formData.append('data', rawData)
 
-            axios.post('http://127.0.0.1:8000/api/event', formData, data).then((res) => {
+                 let config = {
+                    header : {
+                    'Content-Type' : 'multipart/form-data'
+                    }
+                 }
+
+             axios.post('http://127.0.0.1:8000/api/event', formData, config).then((res) => {
                  console.log(res)
                 this.$router.push({ name: 'listing' });
                 console.log('réussi')

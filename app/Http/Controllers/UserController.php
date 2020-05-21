@@ -52,18 +52,8 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->confirm_password = bcrypt($request->confirm_password);
 
-        if($user->image)
-        {
-            try{
-                $filePath = $this->UserImageUpload($user->image);
-                $user->image = $filePath;
-                $user->save();
-                return redirect()->back();
-            }
-            catch(Exception $e) {
-                "erreur";
-            }
-        }
+        $user->save();
+
         $token = JWTAuth::fromUser($user);
 
         return response()->json(compact('user', 'token'), 201);
