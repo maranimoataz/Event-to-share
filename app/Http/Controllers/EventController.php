@@ -25,15 +25,13 @@ class EventController extends Controller
         $validator = Validator::make($request->all() , [     
             'title'=>'required|string|max:255',
             'type'=>'required|string|max:255',
-            'image'=>'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'location'=>'string|max:255',
             'description'=>'required|string|max:255',
             'date'=>'required|date',
             'start_time'=>'required|date_format:H:i',
             'end_time'=>'required|date_format:H:i',
-            'email'=> 'required|string|email|max:255',
-            'first_name'=>'required|string|max:255',
-            'last_name'=> 'required|string|max:255',
+            'animateur'=>'required|string|max:255',
+            'email_animateur'=> 'required|string|email|max:255',
         ]);
 
         if($validator->fails()){
@@ -46,28 +44,15 @@ class EventController extends Controller
         $event = new Event;
           $event->title = $request->title;
           $event->type = $request->type;
-          $event->image = $request->image;
           $event->location = $request->location;
           $event->description = $request->description;
           $event->date = $request->date;
           $event->start_time = $request->start_time;
           $event->end_time = $request->end_time;
-          $event->email = $request->email;
-          $event->first_name = $request->first_name;
-          $event->last_name = $request->last_name;
+          $event->animateur = $request->animateur;
+          $event->email_animateur = $request->email_animateur;
+          $event->save();
 
-        if($event->image)
-        {
-            try{
-                $filePath = $this->UserImageUpload($event->image);
-                $event->image = $filePath;
-                $event->save();
-                return redirect()->back();
-            }
-            catch(Exception $e) {
-                "erreur";
-            }
-        }
         return response()->json('created');
     }
 

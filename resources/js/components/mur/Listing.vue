@@ -48,11 +48,6 @@
         <label><b> The type of the event</b></label>
         <span>{{event.type}}</span>
         <br />
-        <label><b> The image of the event : </b></label>
-        <div class="img">
-        <img v-bind:src="'./image/event/dmp4iYRXEWTF.gif'" width="500" >
-        </div>
-        <br />
         <label><b> The location of the event</b></label>
         <span>{{event.location}}</span>
         <br />

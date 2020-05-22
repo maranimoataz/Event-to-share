@@ -2,6 +2,8 @@
     <div >
     <div class="format">
     <div class="wrapper">
+    <br />
+    <br />
     <div class="form-wrapper">
     <form @submit="onUpload" enctype="multipart/form-data">
     <div class="alert alert-danger" v-if="errors.length">
@@ -9,31 +11,39 @@
             <li v-for="(error, index) in errors" :key="index"> {{ error }}</li>
         </ul>
         </div>
-    <input type="title" for="title" placeholder="title" v-model="title">
+    <input type="text" for="title" placeholder="title" v-model="title" style="width:50%">
     <br />
     <br />
-    <input type="type" for="type" placeholder="type" v-model="type">
-    <br />
-    <input type="file" placeholder="choose image" v-on:change="onImageChange">
-    <br />
-    <input type="location" for="location" placeholder="location" v-model="location">
+    <input type="text" for="type" placeholder="type" v-model="type" style="width:50%">
     <br />
     <br />
-    <textarea type="description" placeholder="description" v-model="description"></textarea>
+    <input type="text" for="location" placeholder="location" v-model="location" style="width:50%">
     <br />
-    <input type="date" placeholder="date" v-model="date">
     <br />
-    <input type="time" placeholder="start time" v-model="start_time">
+    <textarea type="text" placeholder="description" v-model="description" style="width:50%; border-bottom: 4px solid grey; " 
+ ></textarea>
     <br />
-    <input type="time" placeholder="end time" v-model="end_time">
     <br />
-    <input type="email" placeholder="email" v-model="email">
+    <input type="date" placeholder="date" v-model="date" >
     <br />
-    <input type="first_name" placeholder="first name" v-model="first_name">
     <br />
-    <input type="last_name" placeholder="last name" v-model="last_name">
+    <input type="time" placeholder="start time" v-model="start_time" >
     <br />
-              <center> <button  type="submit" class="btn btn-primary" value="Upload">Enregister </button></center>
+    <br />
+    <input type="time" placeholder="end time" v-model="end_time" >
+    <br />
+    <br />
+    <input type="text" placeholder="animateur" v-model="animateur" style="width:50%">
+    <br />
+    <br />
+    <input type="email" placeholder="email_animateur" v-model="email_animateur" style="width:50%">
+    <br />
+    <br />
+    <div >
+              <center> <button  type="submit" class="btn btn-primary" value="Upload" style="width : 15%">Publier </button></center>
+    <br />
+    <br />
+    </div>
     </form>
     </div>
     </div>
@@ -49,28 +59,21 @@ export default {
         return  {
             title : '',
             type : '',
-            image: '',
             location :'',
             description : '',
             date:'',
             start_time:'',
             end_time :'',
-            email:'',
-            first_name: '',
-            last_name:'',
+            animateur:'',
+            email_animateur: '',
             errors : []
         }
     },
     methods : {
-       onImageChange(e) {
-                 console.log(e.target.files[0]);
-                 this.filename = "Selected File: " + e.target.files[0].name;
-                 this.image = e.target.files[0];
-            },
       onUpload(e){
                e.preventDefault();
                 let currentObj = this;
-                let rawData = {
+                    const data  = {
                     title : this.title,
                     type : this.type,
                     location : this.location,
@@ -78,22 +81,11 @@ export default {
                     date : this.date,
                     start_time : this.start_time,
                     end_time : this.end_time,
-                    email : this.email,
-                    first_name : this.first_name,
-                    last_name : this.last_name
+                    animateur : this.animateur,
+                    email_animateur : this.email_animateur,
                 }
-                    rawData = JSON.stringify(rawData)
-                let formData = new FormData();
-                formData.append('image',this.image);
-                 formData.append('data', rawData)
 
-                 let config = {
-                    header : {
-                    'Content-Type' : 'multipart/form-data'
-                    }
-                 }
-
-             axios.post('http://127.0.0.1:8000/api/event', formData, config).then((res) => {
+             axios.post('http://127.0.0.1:8000/api/event', data).then((res) => {
                  console.log(res)
                 this.$router.push({ name: 'listing' });
                 console.log('réussi')
@@ -144,8 +136,12 @@ export default {
     text-align: left;
 }
 .textarea{
-
     width:100%;
     height:300%;
+}
+
+input {
+    border: none;
+    border-bottom: 4px solid grey;  
 }
 </style>

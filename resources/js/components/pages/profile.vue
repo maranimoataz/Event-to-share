@@ -3,12 +3,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Image and text -->
     <div v-for="user in users" :key="user.id">
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-black bg-black" style=" background-color: #000;">
     <a class="navbar-brand" href="#">
     <div class="avatar">
-      <img src="'image/profile/mabrouk.jpeg" width="30" height="30" class="d-inline-block align-top" >
-    </div>
-      Bootstrap
+      <img :src="'image/profile/mabrouk.jpeg'" width="30" height="30" class="d-inline-block align-top" > &nbsp; &nbsp; <span style="color : white">{{ user.user_name}} {{ user.name}}</span>
+       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+          <router-link to="add"><span style="color : white"> New </span></router-link>
+               <router-link to="/"><span style="color : white"> Logout </span></router-link>
+     <router-view></router-view>
+      </div>  
     </a>
   </nav>
     <div class="frame">
@@ -23,7 +26,6 @@
     <a href="#"><i class="fa fa-linkedin"></i></a>  
     <a href="#"><i class="fa fa-facebook"></i></a> 
   </div>
-    <p><button>post events</button></p>
       </div>
     </div>
     </div>

@@ -2028,6 +2028,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2035,30 +2045,23 @@ __webpack_require__.r(__webpack_exports__);
     return {
       title: '',
       type: '',
-      image: '',
       location: '',
       description: '',
       date: '',
       start_time: '',
       end_time: '',
-      email: '',
-      first_name: '',
-      last_name: '',
+      animateur: '',
+      email_animateur: '',
       errors: []
     };
   },
   methods: {
-    onImageChange: function onImageChange(e) {
-      console.log(e.target.files[0]);
-      this.filename = "Selected File: " + e.target.files[0].name;
-      this.image = e.target.files[0];
-    },
     onUpload: function onUpload(e) {
       var _this = this;
 
       e.preventDefault();
       var currentObj = this;
-      var rawData = {
+      var data = {
         title: this.title,
         type: this.type,
         location: this.location,
@@ -2066,20 +2069,10 @@ __webpack_require__.r(__webpack_exports__);
         date: this.date,
         start_time: this.start_time,
         end_time: this.end_time,
-        email: this.email,
-        first_name: this.first_name,
-        last_name: this.last_name
+        animateur: this.animateur,
+        email_animateur: this.email_animateur
       };
-      rawData = JSON.stringify(rawData);
-      var formData = new FormData();
-      formData.append('image', this.image);
-      formData.append('data', rawData);
-      var config = {
-        header: {
-          'Content-Type': 'multipart/form-data'
-        }
-      };
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://127.0.0.1:8000/api/event', formData, config).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('http://127.0.0.1:8000/api/event', data).then(function (res) {
         console.log(res);
 
         _this.$router.push({
@@ -2105,11 +2098,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2449,6 +2437,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -7134,7 +7124,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.wrapper{\r\n\theight:100vh;\r\n\twidth:100x;\r\n\tdisplay:flex;\r\n\tflex-direction: column;\r\n\tjustify-content:center;\r\n\talign-items:center;\r\n\tbackground: #ffffff;\r\n\ttext-align: center;\n}\n.form-wrapper {\r\n\twidth :900px;\r\n\theight: 100%;\r\n\tdisplay :flex;\r\n\tflex-direction:column;\r\n\tpadding:20px 40px;\r\n\tborder-radius:10px;\r\n\tbox-shadow:0px 10px 50px #555;\r\n\tbackground-color :#ffffff;\n}\n.format{\r\n\twidth:100%;\r\n\theight: 100%;\n}\n.form-control{\r\n    width:100%;\r\n    height:100%;\n}\n.img1{\r\n    width: 50%;\r\n    height :50%;\n}\n.loc{\r\n    text-align: left;\n}\n.textarea{\r\n\r\n    width:100%;\r\n    height:300%;\n}\r\n", ""]);
+exports.push([module.i, "\n.wrapper{\r\n\theight:100vh;\r\n\twidth:100x;\r\n\tdisplay:flex;\r\n\tflex-direction: column;\r\n\tjustify-content:center;\r\n\talign-items:center;\r\n\tbackground: #ffffff;\r\n\ttext-align: center;\n}\n.form-wrapper {\r\n\twidth :900px;\r\n\theight: 100%;\r\n\tdisplay :flex;\r\n\tflex-direction:column;\r\n\tpadding:20px 40px;\r\n\tborder-radius:10px;\r\n\tbox-shadow:0px 10px 50px #555;\r\n\tbackground-color :#ffffff;\n}\n.format{\r\n\twidth:100%;\r\n\theight: 100%;\n}\n.form-control{\r\n    width:100%;\r\n    height:100%;\n}\n.img1{\r\n    width: 50%;\r\n    height :50%;\n}\n.loc{\r\n    text-align: left;\n}\n.textarea{\r\n    width:100%;\r\n    height:300%;\n}\ninput {\r\n    border: none;\r\n    border-bottom: 4px solid grey;\n}\r\n", ""]);
 
 // exports
 
@@ -64267,6 +64257,10 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "format" }, [
       _c("div", { staticClass: "wrapper" }, [
+        _c("br"),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
         _c("div", { staticClass: "form-wrapper" }, [
           _c(
             "form",
@@ -64299,7 +64293,8 @@ var render = function() {
                     expression: "title"
                   }
                 ],
-                attrs: { type: "title", for: "title", placeholder: "title" },
+                staticStyle: { width: "50%" },
+                attrs: { type: "text", for: "title", placeholder: "title" },
                 domProps: { value: _vm.title },
                 on: {
                   input: function($event) {
@@ -64324,7 +64319,8 @@ var render = function() {
                     expression: "type"
                   }
                 ],
-                attrs: { type: "type", for: "type", placeholder: "type" },
+                staticStyle: { width: "50%" },
+                attrs: { type: "text", for: "type", placeholder: "type" },
                 domProps: { value: _vm.type },
                 on: {
                   input: function($event) {
@@ -64338,11 +64334,6 @@ var render = function() {
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
-              _c("input", {
-                attrs: { type: "file", placeholder: "choose image" },
-                on: { change: _vm.onImageChange }
-              }),
-              _vm._v(" "),
               _c("br"),
               _vm._v(" "),
               _c("input", {
@@ -64354,8 +64345,9 @@ var render = function() {
                     expression: "location"
                   }
                 ],
+                staticStyle: { width: "50%" },
                 attrs: {
-                  type: "location",
+                  type: "text",
                   for: "location",
                   placeholder: "location"
                 },
@@ -64383,7 +64375,11 @@ var render = function() {
                     expression: "description"
                   }
                 ],
-                attrs: { type: "description", placeholder: "description" },
+                staticStyle: {
+                  width: "50%",
+                  "border-bottom": "4px solid grey"
+                },
+                attrs: { type: "text", placeholder: "description" },
                 domProps: { value: _vm.description },
                 on: {
                   input: function($event) {
@@ -64394,6 +64390,8 @@ var render = function() {
                   }
                 }
               }),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
@@ -64420,6 +64418,8 @@ var render = function() {
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
@@ -64440,6 +64440,8 @@ var render = function() {
                   }
                 }
               }),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
@@ -64466,26 +64468,31 @@ var render = function() {
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.email,
-                    expression: "email"
+                    value: _vm.animateur,
+                    expression: "animateur"
                   }
                 ],
-                attrs: { type: "email", placeholder: "email" },
-                domProps: { value: _vm.email },
+                staticStyle: { width: "50%" },
+                attrs: { type: "text", placeholder: "animateur" },
+                domProps: { value: _vm.animateur },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.email = $event.target.value
+                    _vm.animateur = $event.target.value
                   }
                 }
               }),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
@@ -64494,59 +64501,49 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.first_name,
-                    expression: "first_name"
+                    value: _vm.email_animateur,
+                    expression: "email_animateur"
                   }
                 ],
-                attrs: { type: "first_name", placeholder: "first name" },
-                domProps: { value: _vm.first_name },
+                staticStyle: { width: "50%" },
+                attrs: { type: "email", placeholder: "email_animateur" },
+                domProps: { value: _vm.email_animateur },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.first_name = $event.target.value
+                    _vm.email_animateur = $event.target.value
                   }
                 }
               }),
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.last_name,
-                    expression: "last_name"
-                  }
-                ],
-                attrs: { type: "last_name", placeholder: "last name" },
-                domProps: { value: _vm.last_name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.last_name = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
               _c("br"),
               _vm._v(" "),
-              _c("center", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { type: "submit", value: "Upload" }
-                  },
-                  [_vm._v("Enregister ")]
-                )
-              ])
-            ],
-            1
+              _c(
+                "div",
+                [
+                  _c("center", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        staticStyle: { width: "15%" },
+                        attrs: { type: "submit", value: "Upload" }
+                      },
+                      [_vm._v("Publier ")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br")
+                ],
+                1
+              )
+            ]
           )
         ])
       ])
@@ -64676,60 +64673,47 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(5, true),
                 _vm._v(" "),
-                _c("div", { staticClass: "img" }, [
-                  _c("img", {
-                    attrs: {
-                      src: "./image/event/dmp4iYRXEWTF.gif",
-                      width: "500"
-                    }
-                  })
-                ]),
+                _c("span", [_vm._v(_vm._s(event.location))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _vm._m(6, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.location))]),
+                _c("span", [_vm._v(_vm._s(event.description))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _vm._m(7, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.description))]),
+                _c("span", [_vm._v(_vm._s(event.date))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _vm._m(8, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.date))]),
+                _c("span", [_vm._v(_vm._s(event.start_time))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _vm._m(9, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.start_time))]),
+                _c("span", [_vm._v(_vm._s(event.end_time))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _vm._m(10, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.end_time))]),
+                _c("span", [_vm._v(_vm._s(event.email))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
                 _vm._m(11, true),
                 _vm._v(" "),
-                _c("span", [_vm._v(_vm._s(event.email))]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _vm._m(12, true),
-                _vm._v(" "),
                 _c("span", [_vm._v(_vm._s(event.first_name))]),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
-                _vm._m(13, true),
+                _vm._m(12, true),
                 _vm._v(" "),
                 _c("span", [_vm._v(_vm._s(event.last_name))]),
                 _vm._v(" "),
@@ -64845,12 +64829,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("label", [_c("b", [_vm._v(" The type of the event")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", [_c("b", [_vm._v(" The image of the event : ")])])
   },
   function() {
     var _vm = this
@@ -65358,7 +65336,52 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.users, function(user) {
         return _c("div", { key: user.id }, [
-          _vm._m(0, true),
+          _c(
+            "nav",
+            {
+              staticClass: "navbar navbar-black bg-black",
+              staticStyle: { "background-color": "#000" }
+            },
+            [
+              _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+                _c(
+                  "div",
+                  { staticClass: "avatar" },
+                  [
+                    _c("img", {
+                      staticClass: "d-inline-block align-top",
+                      attrs: {
+                        src: "image/profile/mabrouk.jpeg",
+                        width: "30",
+                        height: "30"
+                      }
+                    }),
+                    _vm._v("     "),
+                    _c("span", { staticStyle: { color: "white" } }, [
+                      _vm._v(_vm._s(user.user_name) + " " + _vm._s(user.name))
+                    ]),
+                    _vm._v(
+                      "\n                                                                                                                                                                                            \n        "
+                    ),
+                    _c("router-link", { attrs: { to: "add" } }, [
+                      _c("span", { staticStyle: { color: "white" } }, [
+                        _vm._v(" New ")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("router-link", { attrs: { to: "/" } }, [
+                      _c("span", { staticStyle: { color: "white" } }, [
+                        _vm._v(" Logout ")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("router-view")
+                  ],
+                  1
+                )
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "frame" }, [
             _c("div", { staticClass: "card" }, [
@@ -65377,9 +65400,7 @@ var render = function() {
               _vm._v(" "),
               _c("p", [_vm._v("Université Chouaib ElDoukkali")]),
               _vm._v(" "),
-              _vm._m(1, true),
-              _vm._v(" "),
-              _vm._m(2, true)
+              _vm._m(0, true)
             ])
           ])
         ])
@@ -65389,26 +65410,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", { staticClass: "navbar navbar-light bg-light" }, [
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _c("div", { staticClass: "avatar" }, [
-          _c("img", {
-            staticClass: "d-inline-block align-top",
-            attrs: {
-              src: "'image/profile/mabrouk.jpeg",
-              width: "30",
-              height: "30"
-            }
-          })
-        ]),
-        _vm._v("\n    Bootstrap\n  ")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -65430,12 +65431,6 @@ var staticRenderFns = [
         _c("i", { staticClass: "fa fa-facebook" })
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("button", [_vm._v("post events")])])
   }
 ]
 render._withStripped = true
