@@ -9,25 +9,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 window.Vue = require('vue');
 Vue.component('vform', require('vue-vform'))
 
-jQuery.extend(true, jQuery.fn.datetimepicker.defaults, {
-    icons: {
-      time: 'far fa-clock',
-      date: 'far fa-calendar',
-      up: 'fas fa-arrow-up',
-      down: 'fas fa-arrow-down',
-      previous: 'fas fa-chevron-left',
-      next: 'fas fa-chevron-right',
-      today: 'fas fa-calendar-check',
-      clear: 'far fa-trash-alt',
-      close: 'far fa-times-circle'
-    }
-});
 
 
 
-import datePicker from 'vue-bootstrap-datetimepicker';
-  import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
-  Vue.use(datePicker);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

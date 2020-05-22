@@ -66,7 +66,7 @@ export default {
             end_time :'',
             animateur:'',
             email_animateur: '',
-            errors : []
+            errors : [],
         }
     },
     methods : {

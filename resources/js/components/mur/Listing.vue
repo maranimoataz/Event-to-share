@@ -51,6 +51,9 @@
         <label><b> The location of the event</b></label>
         <span>{{event.location}}</span>
         <br />
+        <div class="image">
+        <Slider />
+        </div>
         <label><b> The description</b></label>
         <span>{{event.description}}</span>
         <br />
@@ -80,10 +83,13 @@
 </div>
 </template>
 <script>
+import Slider from './Slider'
 export default {
-      data() {
+  components : {Slider},
+  data() {
         return {
            events : [],
+
         }
       },
       mounted() {
