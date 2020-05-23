@@ -2,6 +2,7 @@
   <div class="example-3d">
     <swiper class="swiper" :options="swiperOption">
      <swiper-slide><img src="image/Slider/img6.jpg" class="image"></swiper-slide>
+    <swiper-slide><img src="image/Slider/img7.jpg" class="image"></swiper-slide>
       <swiper-slide><img src="image/Slider/img2.jpg" class="image"></swiper-slide>
       <swiper-slide><img src="image/Slider/img3.jpg" class="image"></swiper-slide>
       <swiper-slide><img src="image/Slider/img4.jpg" class="image"></swiper-slide>
