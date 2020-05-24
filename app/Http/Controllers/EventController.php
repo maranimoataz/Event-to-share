@@ -11,7 +11,7 @@ use App\Traits\ImageUploader;
 class EventController extends Controller
 {
     public function index(){
-        $event = Event::orderBy('created_at','desc')->get();
+        $event = Event::orderBy('created_at','desc')->paginate(3);
         return response()->json($event);
     }
 

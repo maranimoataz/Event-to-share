@@ -9,6 +9,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 window.Vue = require('vue');
 Vue.component('vform', require('vue-vform'))
 
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
 
 
 

@@ -33,6 +33,7 @@
         "@pencilpix/vue2-clock-picker": "^0.1.6",
         "animate.css": "^4.1.0",
         "eagle.js": "^0.6.1",
+        "laravel-vue-pagination": "^2.3.1",
         "pug": "^2.0.4",
         "pug-plain-loader": "^1.0.0",
         "swiper": "^5.4.1",

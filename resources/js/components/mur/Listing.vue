@@ -10,9 +10,69 @@
       <div v-for="event in events" v-bind:key="event.id">
         <div class="wrapper">
         <div class="form-wrapper">
-        <navbarhd />
-        <label><b> The title of the event</b></label>
-        <span >{{event.title}}</span>
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+      
+            <div class="dropdown">
+            <span>Type </span>
+            <div class="dropdown-content">
+            <p>{{event.type}}</p>
+            </div>
+            </div>
+
+      </li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li class="nav-item">
+       
+            <div class="dropdown">
+            <span>Date</span>
+            <div class="dropdown-content">
+            <p>{{event.date}}</p>
+            </div>
+            </div>
+
+      </li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li class="nav-item dropdown">
+        
+            <div class="dropdown">
+            <span>the time </span>
+            <div class="dropdown-content">
+            <p>{{event.start_time}}</p>
+            </div>
+            </div>
+
+      </li>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li class="nav-item">
+        
+        <div class="dropdown">
+        <span>the end time</span>
+        <div class="dropdown-content">
+        <p>{{event.end_time}}</p>
+        </div>
+        </div>
+
+          </li>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <li class="nav-item">
+        
+        <div class="dropdown">
+        <span>the location</span>
+        <div class="dropdown-content">
+        <p>{{event.location}}</p>
+        </div>
+        </div>
+
+          </li>
+        </ul>    
+      </div>
+    </nav>
+    <br />
+        <b><span >{{event.title}}</span></b>
         <div class="image">
         <Slider />
         </div>  
@@ -31,18 +91,25 @@
     </div>
   </div>
 </div>
+    <div class="pagination">
+      <button class="btn btn-default" v-on:click="fetchPaginateEvents(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">
+      <img src="image/image/left.png" style="width:50px; height:50px" />  </button>
+       <button class="btn btn-default" v-on:click="fetchPaginateEvents(pagination.next_page_url)" :disabled="!pagination.next_page_url">
+        <img src="image/image/right.png" style="width:50px; height:50px" />
+      </button>
+    </div>
 </div>
 </template>
 <script>
 import Slider from './Slider'
 import navbar from './navbar-li'
-import navbarhd from './navbar-header'
 export default {
-  components : {Slider, navbar, navbarhd},
+  components : {Slider, navbar},
   data() {
         return {
            events : [],
-
+           url : 'http://127.0.0.1:8000/api/event',
+           pagination : []
         }
       },
       mounted() {
@@ -50,14 +117,29 @@ export default {
       },
       methods : {
         getEvents(){
-          axios.get('http://127.0.0.1:8000/api/event')
+          let $this = this;
+          axios.get(this.url)
             .then(response => {
-              this.events = response.data;
+              this.events = response.data.data
+              $this.makePagination(response.data)
             })
               .catch(error => {
                 console.log('error')
               })
-          }
+          },
+         makePagination(data) {
+           let pagination = {
+             current_page : data.current_page,
+             last_page : data.last_page,
+             next_page_url : data.next_page_url,
+             prev_page_url : data.prev_page_url
+           }
+           this.pagination = pagination
+         },
+         fetchPaginateEvents(url) {
+            this.url = url
+            this.getEvents()
+         } 
         }
       }
 </script>
