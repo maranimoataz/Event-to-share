@@ -29,6 +29,8 @@ Route::get('event/{id}','EventController@show');
 Route::post('event','EventController@store');
 Route::put('event/{id}','EventController@update');
 Route::delete('event/{id}','EventController@delete');
+Route::get('search','EventController@search');
+
 
 Route::post('image','ImageController@store');
 

@@ -2352,6 +2352,73 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mur/navbar-li.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/mur/navbar-li.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      qry: '',
+      results: []
+    };
+  },
+  methods: {
+    autoComplete: function autoComplete() {
+      var _this = this;
+
+      this.results = [];
+      axios.get('http://127.0.0.1:8000/api/search', {
+        qry: this.qry
+      }).then(function (response) {
+        console.log(response);
+        _this.results = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/Login.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/Login.vue?vue&type=script&lang=js& ***!
@@ -7270,7 +7337,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.image{\r\n  width:20%;\r\n  height:20%;\n}\n.avatar {\r\n  vertical-align: middle;\r\n  width: 10px;\r\n  height: 10px;\r\n  border-radius: 10%;\n}\n.button{\r\n  width: 10%;\r\n  height :10%;\r\n  color: #ffffff;\n}\n.wrapper{\r\n\theight:100vh;\r\n\twidth:100x;\r\n\tdisplay:flex;\r\n\tflex-direction: column;\r\n\tjustify-content:center;\r\n\talign-items:center;\r\n\tbackground: #ffffff;\r\n\ttext-align: center;\n}\n.form-wrapper {\r\n\twidth :900px;\r\n\theight: 100%;\r\n\tdisplay :flex;\r\n\tflex-direction:column;\r\n\tpadding:20px 40px;\r\n\tborder-radius:10px;\r\n\tbox-shadow:0px 10px 50px #555;\r\n\tbackground-color :#ffffff;\n}\n.format{\r\n\twidth:100%;\r\n\theight: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.image{\r\n  width:20%;\r\n  height:20%;\n}\n.avatar {\r\n  vertical-align: middle;\r\n  width: 10px;\r\n  height: 10px;\r\n  border-radius: 10%;\n}\n.button{\r\n  width: 10%;\r\n  height :10%;\r\n  color: #ffffff;\n}\n.wrapper{\r\n\theight:100vh;\r\n\twidth:100x;\r\n\tdisplay:flex;\r\n\tflex-direction: column;\r\n\tjustify-content:center;\r\n\talign-items:center;\r\n\tbackground: #ffffff;\r\n\ttext-align: center;\n}\n.form-wrapper {\r\n\twidth :900px;\r\n\theight: 100%;\r\n\tdisplay :flex;\r\n\tflex-direction:column;\r\n\tpadding:20px 40px;\r\n\tborder-radius:10px;\r\n\tbox-shadow:0px 10px 50px #555;\r\n\tbackground-color :#ffffff;\n}\n.format{\r\n\twidth:100%;\r\n\theight: 100%;\n}\n.searchBox {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform:  translate(-50%,50%);\r\n    background: #2f3640;\r\n    height: 40px;\r\n    border-radius: 40px;\r\n    padding: 10px;\n}\n.searchBox:hover > .searchInput {\r\n    width: 240px;\r\n    padding: 0 6px;\n}\n.searchBox:hover > .searchButton {\r\n  background: white;\r\n  color : #2f3640;\n}\n.searchButton {\r\n    color: white;\r\n    float: right;\r\n    width: 40px;\r\n    height: 40px;\r\n    border-radius: 50%;\r\n    background: #2f3640;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transition: 0.4s;\n}\n.searchInput {\r\n    border:none;\r\n    background: none;\r\n    outline:none;\r\n    float:left;\r\n    padding: 0;\r\n    color: white;\r\n    font-size: 16px;\r\n    transition: 0.4s;\r\n    line-height: 40px;\r\n    width: 0px;\n}\n@media screen and (max-width: 620px) {\n.searchBox:hover > .searchInput {\r\n    width: 150px;\r\n    padding: 0 6px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -7286,10 +7353,10 @@ exports.push([module.i, "\n.image{\r\n  width:20%;\r\n  height:20%;\n}\n.avatar 
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Inconsolata:700);", ""]);
 
 // module
-exports.push([module.i, "\n.nav[data-v-0f467ccc]{\r\n  width: 100%;\r\n  height :300%;\r\n  color: #6495ED;\n}\r\n", ""]);
+exports.push([module.i, "\n.nav[data-v-0f467ccc]{\r\n  width: 100%;\r\n  height :300%;\r\n  color: #6495ED;\n}\nbody[data-v-0f467ccc] {\r\n    background-image: linear-gradient(to right , #cb2d3e , #ef473a);\n}\n.searchBox[data-v-0f467ccc] {\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform:  translate(-50%,50%);\r\n    background: #2f3640;\r\n    height: 40px;\r\n    border-radius: 40px;\r\n    padding: 10px;\n}\n.searchBox:hover > .searchInput[data-v-0f467ccc] {\r\n    width: 240px;\r\n    padding: 0 6px;\n}\n.searchBox:hover > .searchButton[data-v-0f467ccc] {\r\n  background: white;\r\n  color : #2f3640;\n}\n.searchButton[data-v-0f467ccc] {\r\n    color: white;\r\n    float: right;\r\n    width: 40px;\r\n    height: 40px;\r\n    border-radius: 50%;\r\n    background: #2f3640;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    transition: 0.4s;\n}\n.searchInput[data-v-0f467ccc] {\r\n    border:none;\r\n    background: none;\r\n    outline:none;\r\n    float:left;\r\n    padding: 0;\r\n    color: white;\r\n    font-size: 16px;\r\n    transition: 0.4s;\r\n    line-height: 40px;\r\n    width: 0px;\n}\n@media screen and (max-width: 620px) {\n.searchBox:hover > .searchInput[data-v-0f467ccc] {\r\n    width: 150px;\r\n    padding: 0 6px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -51337,7 +51404,7 @@ var render = function() {
                           "nav",
                           {
                             staticClass:
-                              "navbar navbar-expand-black navbar-black bg-black"
+                              "navbar navbar-expand-lg navbar-light bg-light"
                           },
                           [
                             _c(
@@ -51685,6 +51752,50 @@ var render = function() {
           _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
+          _c("div", { staticClass: "searchBox" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.qry,
+                  expression: "qry"
+                }
+              ],
+              staticClass: "searchInput",
+              attrs: { type: "text", placeholder: "Search by Title of events" },
+              domProps: { value: _vm.qry },
+              on: {
+                keyup: _vm.autoComplete,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.qry = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.results.length
+              ? _c(
+                  "div",
+                  { staticClass: "panel-footer" },
+                  _vm._l(_vm.results, function(result) {
+                    return _c("p", { key: result.id }, [
+                      _vm._v(
+                        "\r\n            @" +
+                          _vm._s(result.title) +
+                          "\r\n            "
+                      )
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._m(2)
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             {
@@ -51719,9 +51830,7 @@ var render = function() {
           )
         ]
       )
-    ]),
-    _vm._v(" "),
-    _vm._m(2)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -51759,60 +51868,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "nav",
-        { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
-        [
-          _c(
-            "button",
-            {
-              staticClass: "navbar-toggler",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#navbarSupportedContent",
-                "aria-controls": "navbarSupportedContent",
-                "aria-expanded": "false",
-                "aria-label": "Toggle navigation"
-              }
-            },
-            [_c("span", { staticClass: "navbar-toggler-icon" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "collapse navbar-collapse",
-              attrs: { id: "navbarSupportedContent" }
-            },
-            [
-              _vm._v(
-                "\r\n                                                                                                                                                                                                                                                                  \r\n    "
-              ),
-              _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-                _c("input", {
-                  staticClass: "form-control mr-sm-1",
-                  attrs: {
-                    type: "search",
-                    placeholder: "Search an event...",
-                    "aria-label": "Search"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-outline-success my-2 my-sm-0",
-                    attrs: { type: "submit" }
-                  },
-                  [_vm._v("Search")]
-                )
-              ])
-            ]
-          )
-        ]
-      )
+    return _c("button", { staticClass: "searchButton", attrs: { href: "#" } }, [
+      _c("i", { staticClass: "material-icons" })
     ])
   }
 ]
@@ -68157,17 +68214,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _navbar_li_vue_vue_type_template_id_0f467ccc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./navbar-li.vue?vue&type=template&id=0f467ccc&scoped=true& */ "./resources/js/components/mur/navbar-li.vue?vue&type=template&id=0f467ccc&scoped=true&");
-/* harmony import */ var _navbar_li_vue_vue_type_style_index_0_id_0f467ccc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar-li.vue?vue&type=style&index=0&id=0f467ccc&scoped=true&lang=css& */ "./resources/js/components/mur/navbar-li.vue?vue&type=style&index=0&id=0f467ccc&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _navbar_li_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navbar-li.vue?vue&type=script&lang=js& */ "./resources/js/components/mur/navbar-li.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _navbar_li_vue_vue_type_style_index_0_id_0f467ccc_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./navbar-li.vue?vue&type=style&index=0&id=0f467ccc&scoped=true&lang=css& */ "./resources/js/components/mur/navbar-li.vue?vue&type=style&index=0&id=0f467ccc&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _navbar_li_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _navbar_li_vue_vue_type_template_id_0f467ccc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _navbar_li_vue_vue_type_template_id_0f467ccc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -68181,6 +68240,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/mur/navbar-li.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/mur/navbar-li.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/mur/navbar-li.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_li_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./navbar-li.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mur/navbar-li.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_navbar_li_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

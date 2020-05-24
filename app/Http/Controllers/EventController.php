@@ -69,4 +69,8 @@ class EventController extends Controller
 
         return 204;
     }
+    public function search(Request $request) {
+        $search = $request->get('q');
+        return Event::where('title','like','%' . $search . '%')->get();
+    }
 }
