@@ -19,7 +19,7 @@
             <div class="dropdown">
             <span>Type </span>
             <div class="dropdown-content">
-            <p>{{event.type}}</p>
+            <p >{{event.type}}</p>
             </div>
             </div>
 
@@ -72,7 +72,7 @@
       </div>
     </nav>
     <br />
-        <b><span >{{event.title}}</span></b>
+        <b><span style="width=30%; height=30px;">{{event.title}}</span></b>
         <div class="image">
         <Slider />
         </div>  

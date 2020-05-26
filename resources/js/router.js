@@ -8,6 +8,7 @@ import Add from './components/mur/Add'
 import image from './components/mur/image'
 import profile from './components/pages/profile'
 import Help from './components/mur/Help'
+import getresult from './components/mur/getresult'
 import Vue from 'vue'
 
 
@@ -51,10 +52,13 @@ const routes =[
                             path: '/help',
                             name: 'help',
                             component: Help,
-                            }
-                            
-                
-
+                            },
+                            {
+                                path: '/getresult',
+                                name: 'getresult',
+                                component: getresult,
+                                }
+                        
 
 ]
 Vue.use(VueRoute);

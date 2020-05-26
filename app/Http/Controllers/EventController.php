@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Event;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\ImageUploader;
-
+use DB;
 
 class EventController extends Controller
 {
@@ -70,7 +70,9 @@ class EventController extends Controller
         return 204;
     }
     public function search(Request $request) {
-        $search = $request->get('q');
-        return Event::where('title','like','%' . $search . '%')->get();
+        $qry = $request->qry;
+        return $event = DB::table('events')
+        ->where('title', 'like', '%'. $qry . '%')
+        ->get();
     }
 }

@@ -10,10 +10,11 @@
         </button>
         <div class="searchBox">
             <input class="searchInput" type="text" v-model="qry" v-on:keyup="autoComplete" placeholder="Search by Title of events">
-            <div class="panel-footer" v-if="results.length">
-            <p v-for="result in results" v-bind:key="result.id">
-            @{{result.title}}
-            </p>
+            <div class="panel-footer" v-if="results.length"
+            style="position:relative; z-index:1000; border:1px solid #ccc; background:#fff;">
+                <p v-for="result in results" v-bind:key="result.id">
+                <b>@{{ result.title }}</b>
+                </p>
             </div>
             <button class="searchButton" href="#">
                 <i class="material-icons"></i>
@@ -43,7 +44,7 @@ export default {
   methods : {
     autoComplete(){
       this.results = [];
-      axios.get('http://127.0.0.1:8000/api/search' , {
+      axios.post('http://127.0.0.1:8000/api/search' , {
         qry : this.qry
       })
       .then( (response) => {
@@ -69,7 +70,7 @@ body {
 .searchBox {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 10%;
     transform:  translate(-50%,50%);
     background: #2f3640;
     height: 40px;
