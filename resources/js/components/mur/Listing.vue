@@ -2,6 +2,7 @@
 <div>
   <navbar />
 <br />
+  <prc />
   <div class="container">
     <div class="format">
     <div class="row justify-content-center">
@@ -103,8 +104,9 @@
 <script>
 import Slider from './Slider'
 import navbar from './navbar-li'
+import prc from './parcourir'
 export default {
-  components : {Slider, navbar},
+  components : {Slider, navbar, prc},
   data() {
         return {
            events : [],

@@ -8,24 +8,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="searchBox">
-            <input class="searchInput" type="text" v-model="qry" v-on:keyup="autoComplete" placeholder="Search by Title of events">
-            <div class="panel-footer" v-if="results.length"
-            style="position:relative; z-index:1000; border:1px solid #ccc; background:#fff;">
-                <p v-for="result in results" v-bind:key="result.id">
-                <b>@{{ result.title }}</b>
-                </p>
-            </div>
-            <button class="searchButton" href="#">
-                <i class="material-icons"></i>
-            </button>
-        </div>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+             <search />
             <router-link class="nav-item nav-link" to="Home">Home </router-link>
             <router-link class="nav-item nav-link" to="help">Help</router-link>
-
                     <router-view></router-view>
             </div>
         </div>
@@ -34,25 +23,10 @@
 </div>
 </template>
 <script>
+import search from './search'
 export default {
-  data () {
-    return {
-      qry :'',
-      results : [],
-    }
-  },
-  methods : {
-    autoComplete(){
-      this.results = [];
-      axios.post('http://127.0.0.1:8000/api/search' , {
-        qry : this.qry
-      })
-      .then( (response) => {
-        console.log(response);
-        this.results = response.data;
-      })
-    }
-  }
+  components : {search}
+
 }
 </script>
 
@@ -70,7 +44,7 @@ body {
 .searchBox {
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 94%;
     transform:  translate(-50%,50%);
     background: #2f3640;
     height: 40px;
